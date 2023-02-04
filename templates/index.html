@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<!-- HEAD -->
+<head>
+	<meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" charset="UTF-8">
+	<title>Mason G.</title>
+	<link rel="stylesheet" href="{% static 'css/homepage.css'%}">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png'%}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png'%}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png'%}">
+	<link rel="manifest" href="{% static 'img/favicon/site.webmanifest'%}">
+</head>
+
+<!-- BODY -->
+<body class="homebody">
+
+	<!-- NAVIGATION BAR -->
+	<div class="nav-list">
+		<!-- RESUME PAGE LINK -->
+		<div class="nav-item">
+			<a class="nav-link" href="{% static 'img/Mason_Galat_Resume.pdf'%}" target="_blank">
+				<p class="nav-links-title">Resume</p>
+			</a>
+		</div>
+	</div>
+
+	<!-- HOME DESCRIPTION -->
+	<div class="home-description-div">
+		<p class="home-title">Frontend Developer</p>
+		<!-- <hr class="home_row" /> -->
+		<p class="home-skills">JavaScript / React / Python / Django / HTML / CSS / Git</p>
+		<p class="home-name">Hi, I'm Mason.</p>
+		<p class="home-description">
+			A motivated web developer from Pennsylvania, USA, 
+			aspiring to become an expert computer geek.
+			I absolutely love to learn new technologies, and use it in my everyday life.
+			Every problem out there is worth solving!
+			In my freetime, I enjoy admiring art, music, and skateboarding with friends.
+		</p>
+	</div>
+
+	<div class="middle-title-div">
+		<h2 class="middle-title">Projects</h2>
+	</div>
+
+	<!-- PROJECTS FROM DATABASE -->
+	<div class="project-section">
+	{% for project in projects %}
+		<div class="project">
+			<img class="project-img" src="{% static project.image %}">
+			<div class="project-details">
+				<p class="project-title">{{ project.title }}</p>
+				<p class="project-description">{{ project.description }}</p>
+				<a href="{{ project.url }}" target="_blank">
+					<button class="project-button">Learn More</button>
+				</a>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+
+	<!-- FOOTER -->
+	<footer class="home-footer">
+		<div class="social-div">
+			<a class="social-link email" href="mailto:mason4work@outlook.com?subject=Portfolio" target="_blank"><span>Email</span></a>
+			<a class="social-link linkedin" href="https://www.linkedin.com/in/mason-galat/" target="_blank"><span>LinkedIn</span></a>
+			<a class="social-link github" href="https://github.com/spacewizard66" target="_blank"><span>Github</span></a>
+		</div>
+		<!-- COPYRIGHT TAG -->
+		<div class="copyright-div">
+			<p class="copyright">© 2023 Mason Galat - All Rights Reserved</p>
+		</div>
+	</footer>
+</body>
+</html>

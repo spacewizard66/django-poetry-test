@@ -1,0 +1,22 @@
+databases:
+	- name: mysite
+	databaseName: mysite
+	user: mysite
+
+services:
+	- type: web
+	name: mysite
+	env: python
+	buildCommand: "./build.sh"
+	startCommand: "gunicorn mysite.wsgi:application"
+	healthCheckPath: /
+	envVars:
+		- key: DATABASE_URL
+		fromDatabase:
+			name: mysite
+			property: connectionString
+		- key: SECRET_KEY
+		generateValue: true # will generate a base64-encoded 256-bit secret
+		- key: WEB_CONCURRENCY
+		value: 4
+
