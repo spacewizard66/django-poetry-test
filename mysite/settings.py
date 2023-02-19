@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
            # Feel free to alter this value to suit your needs.
-           default='postgresql://admin:WkNpmh13X2fCnYi073nxARnHh631YgcC@dpg-cfhdnn1mbjsgbcn986sg-a:5432/mysite_3cc7',
+           default='postgresql://admin:WkNpmh13X2fCnYi073nxARnHh631YgcC@dpg-cfhdnn1mbjsgbcn986sg-a.oregon-postgres.render.com:5432/mysite_3cc7',
            conn_max_age=600
        )
 }
